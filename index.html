@@ -6,7 +6,182 @@
   <title>Finance &amp; Treasury Professional | Portfolio</title>
   <meta name="description" content="Portfolio of a finance and treasury professional: cash management, accounts payable, banking coordination, and AI-assisted process improvement.">
   <meta name="theme-color" content="#142a4f">
-  <link rel="stylesheet" href="css/styles.css">
+  <style>
+/* ==========================================================
+   Portfolio styles. Colors are variables: change them here.
+   ========================================================== */
+:root {
+  --navy: #142a4f;
+  --navy-dark: #0d1c37;
+  --blue: #2f5d9e;
+  --blue-soft: #e4ecf7;
+  --gray-50: #f7f8fa;
+  --gray-100: #f1f3f6;
+  --gray-200: #e1e5eb;
+  --gray-500: #6b7380;
+  --gray-700: #3d4551;
+  --white: #ffffff;
+  --ph: #fff3b0;
+  --radius: 12px;
+  --shadow: 0 1px 2px rgba(20, 42, 79, 0.06), 0 6px 18px rgba(20, 42, 79, 0.06);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--gray-700);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { color: var(--navy); line-height: 1.2; margin: 0; }
+p { margin: 0 0 1rem; }
+a { color: var(--blue); }
+ul { margin: 0; padding: 0; list-style: none; }
+.wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+.muted { color: var(--gray-500); }
+.ph { background: var(--ph); border-radius: 3px; padding: 0 3px; }
+
+.skip { position: absolute; left: -999px; top: 8px; background: var(--navy); color: #fff; padding: 8px 12px; border-radius: 6px; z-index: 100; }
+.skip:focus { left: 8px; }
+
+/* Buttons */
+.btn {
+  display: inline-block; padding: 12px 22px; border-radius: 8px;
+  background: var(--navy); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px;
+  border: 2px solid var(--navy); transition: background .2s, transform .2s, color .2s;
+}
+.btn:hover { background: var(--blue); border-color: var(--blue); transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: var(--navy); }
+.btn-ghost:hover { color: #fff; }
+.btn-ghost-light { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
+.btn-ghost-light:hover { background: #fff; color: var(--navy); border-color: #fff; }
+.btn-small { padding: 8px 16px; font-size: 14px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+/* Navigation */
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.96); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gray-200); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--navy); text-decoration: none; }
+.brand-mark { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: var(--navy); color: #fff; font-size: 13px; letter-spacing: .5px; }
+.nav-links { display: flex; align-items: center; gap: 22px; }
+.nav-links a:not(.btn) { color: var(--gray-700); text-decoration: none; font-size: 15px; font-weight: 500; }
+.nav-links a:not(.btn):hover { color: var(--blue); }
+.nav-toggle { display: none; background: none; border: 0; padding: 10px; cursor: pointer; }
+.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 4px 0; transition: transform .2s, opacity .2s; }
+
+/* Hero */
+.hero { background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%); padding: 64px 0 56px; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; }
+.eyebrow { color: var(--blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; font-size: 13px; margin-bottom: 10px; }
+.hero h1 { font-size: 44px; margin-bottom: 16px; }
+.lead { font-size: 19px; color: var(--gray-700); max-width: 560px; }
+.meta { color: var(--gray-500); font-size: 15px; margin-bottom: 24px; }
+
+/* Dashboard-style snapshot */
+.snapshot { background: var(--navy); border-radius: 14px; padding: 18px 20px 22px; box-shadow: var(--shadow); color: #fff; }
+.snapshot-head { display: flex; align-items: center; gap: 6px; margin-bottom: 14px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.35); }
+.snapshot-title { margin-left: 8px; font-size: 13px; letter-spacing: .6px; text-transform: uppercase; color: rgba(255,255,255,.75); }
+.snapshot-list { display: grid; gap: 10px; }
+.snapshot-list li { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 12px 14px; }
+.tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; background: var(--blue-soft); color: var(--navy); padding: 2px 8px; border-radius: 999px; margin-bottom: 6px; }
+.snapshot-list strong { display: block; font-size: 16px; }
+.snapshot-list span.note { font-size: 13px; color: rgba(255,255,255,.7); }
+
+/* Sections */
+.section { padding: 72px 0; }
+.section.alt { background: var(--gray-100); }
+.section-title { font-size: 30px; margin-bottom: 28px; position: relative; padding-bottom: 12px; }
+.section-title::after { content: ""; position: absolute; left: 0; bottom: 0; width: 48px; height: 3px; background: var(--blue); border-radius: 2px; }
+.section-note { max-width: 720px; color: var(--gray-500); margin-top: -10px; margin-bottom: 26px; }
+
+.about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: start; }
+.card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+.card h3 { font-size: 17px; margin-bottom: 8px; }
+.card h3.spaced { margin-top: 20px; }
+.card p { margin-bottom: 4px; }
+
+.check li { position: relative; padding-left: 24px; margin-bottom: 6px; }
+.check li::before { content: ""; position: absolute; left: 3px; top: 8px; width: 6px; height: 10px; border: solid var(--blue); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li, .chips span.chip { background: var(--blue-soft); color: var(--navy); font-size: 14px; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+.chips-large li { font-size: 16px; padding: 10px 18px; background: var(--white); border: 1px solid var(--gray-200); box-shadow: var(--shadow); }
+
+.grid { display: grid; gap: 20px; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.tile { background: var(--white); border: 1px solid var(--gray-200); border-top: 3px solid var(--navy); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s; }
+.tile:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(20, 42, 79, 0.12); }
+.tile h3 { font-size: 17px; margin-bottom: 8px; }
+.tile p { font-size: 15px; margin-bottom: 0; }
+.tile .detail { margin-top: 10px; font-size: 14px; color: var(--gray-500); }
+.badge { display: inline-block; margin-bottom: 10px; font-size: 11px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: var(--blue); background: var(--blue-soft); padding: 2px 8px; border-radius: 4px; }
+
+/* Experience */
+.role { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--gray-200); }
+.role h3 { font-size: 21px; }
+.role p { margin: 2px 0 0; }
+.role-dates { color: var(--navy); font-weight: 600; margin: 0; }
+.tile ul li { position: relative; padding-left: 18px; margin-bottom: 8px; font-size: 15px; }
+.tile ul li::before { content: ""; position: absolute; left: 2px; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+
+/* Contact */
+.contact { background: var(--navy); }
+.contact .section-title, .contact .section-note, .contact a { color: #fff; }
+.contact .section-note { color: rgba(255,255,255,.8); }
+.contact-grid { align-items: center; }
+.contact-list li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.15); color: #fff; word-break: break-word; }
+.contact-list .label { min-width: 86px; color: rgba(255,255,255,.65); font-size: 14px; text-transform: uppercase; letter-spacing: .6px; padding-top: 2px; }
+.contact .ph { color: var(--navy); }
+.contact .btn { background: #fff; color: var(--navy); border-color: #fff; }
+.contact .btn:hover { background: var(--blue-soft); }
+.contact .btn-ghost-light { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
+.contact .btn-ghost-light:hover { background: #fff; color: var(--navy); }
+
+.footer { background: var(--navy-dark); color: rgba(255,255,255,.7); padding: 20px 0; font-size: 14px; }
+.footer p { margin: 0; }
+
+/* Subtle reveal animation (added by JS only) */
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .btn, .tile { transition: none; }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .hero-grid, .about-grid { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 38px; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .nav-toggle { display: block; }
+  .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: #fff; border-bottom: 1px solid var(--gray-200); padding: 8px 20px 16px; }
+  .nav-links.open { display: flex; }
+  .nav-links a:not(.btn) { padding: 12px 0; border-bottom: 1px solid var(--gray-100); }
+  .nav-links .btn { text-align: center; margin-top: 12px; }
+  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  .hero { padding: 40px 0; }
+  .hero h1 { font-size: 32px; }
+  .lead { font-size: 17px; }
+  .section { padding: 52px 0; }
+  .section-title { font-size: 26px; }
+  .cta .btn { flex: 1 1 100%; text-align: center; }
+}
+
+</style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -35,7 +210,7 @@
           <p class="lead" id="heroHeadline"></p>
           <p class="meta" id="heroMeta"></p>
           <div class="cta">
-            <a class="btn" id="resumeBtn" href="assets/Resume.pdf" download>Download Resume</a>
+            <a class="btn" id="resumeBtn" href="Resume.pdf" download>Download Resume</a>
             <a class="btn btn-ghost" href="#contact">Contact Me</a>
           </div>
         </div>
@@ -108,7 +283,7 @@
           <ul class="contact-list reveal" id="contactList"></ul>
           <div class="cta reveal">
             <a class="btn" id="emailBtn" href="#contact">Send an Email</a>
-            <a class="btn btn-ghost-light" id="resumeBtn2" href="assets/Resume.pdf" download>Download Resume</a>
+            <a class="btn btn-ghost-light" id="resumeBtn2" href="Resume.pdf" download>Download Resume</a>
           </div>
         </div>
       </div>
@@ -119,7 +294,322 @@
     <div class="wrap"><p id="footerText"></p></div>
   </footer>
 
-  <script src="js/content.js"></script>
-  <script src="js/main.js"></script>
+  <script>
+/* ==========================================================
+   EDIT YOUR INFORMATION HERE
+   - This is the only file you need to change for your content.
+   - Anything inside [square brackets] is a placeholder and is
+     shown with a highlight until you replace it.
+   - Keep the quotation marks and commas exactly as they are.
+   ========================================================== */
+
+window.SITE = {
+  name: "Patrick J. De Los Reyes",
+  title: "Finance & Treasury Professional",
+  headline:
+    "Treasury, cash management, and accounts payable support, backed by a practical habit of using AI tools to make daily finance work more organized.",
+  location: "Caloocan City, Philippines",
+  availability: "Open to Finance, Treasury, AP, and Remote Finance Support roles",
+
+  contact: {
+    email: "delosreyesptrck@gmail.com",
+    phone: "09216939695",
+    linkedin: "",
+    location: "Caloocan City, Philippines",
+  },
+
+  resumeFile: "Resume.pdf",
+
+  // Dashboard-style snapshot beside the introduction (daily and weekly routines, no made-up numbers)
+  snapshot: [
+    { label: "Daily", value: "Bank balance monitoring", note: "Funds checked to prevent DAIF" },
+    { label: "Daily", value: "WCRD monitoring update", note: "Cash receipts and disbursements" },
+    { label: "Weekly", value: "Cash Position Report", note: "Across multiple bank accounts" },
+    { label: "Weekly", value: "Cash Receipts and Disbursements", note: "Prepared and reported" },
+  ],
+
+  intro: {
+    paragraphs: [
+      "I am a finance professional with 3 years of experience in accounting and finance, focused on treasury operations, cash management, and accounts payable support.",
+      "My day-to-day work centers on monitoring cash movements across multiple bank accounts, preparing cash reports, scheduling supplier payments, and coordinating with banks. Alongside this, I use AI tools to build simple internal applications that help organize and monitor financial transactions.",
+    ],
+    education: "BS Business Administration, Major in Financial Management",
+    educationSchool: "University of Caloocan City, 2023",
+    strengths: [
+      "Accuracy and attention to detail",
+      "Organized financial monitoring",
+      "Clear coordination with banks, suppliers, and sales teams",
+      "Initiative in improving manual workflows",
+    ],
+    expertise: [
+      "Treasury Operations",
+      "Cash Position Monitoring",
+      "Accounts Payable",
+      "Bank Coordination",
+      "Financial Reporting",
+      "AI-Assisted Process Improvement",
+    ],
+  },
+
+  competencies: [
+    { title: "Treasury Operations", text: "Daily deposits, post-dated check (PDC) safekeeping and monitoring, and revolving fund handling for scrap payments." },
+    { title: "Cash Flow Monitoring", text: "Tracking cash inflows and outflows across multiple bank accounts, with the WCRD monitoring file updated daily." },
+    { title: "Bank Reconciliation Support", text: "Matching deposits and disbursements to bank statements to support reconciliation, backed by accurate deposit preparation and balance tracking." },
+    { title: "Cash Position Monitoring", text: "Watching bank balances to keep sufficient funds available and avoid DAIF (Drawn Against Insufficient Funds)." },
+    { title: "Accounts Payable", text: "Reviewing supporting documents before check preparation and approval to confirm completeness and accuracy." },
+    { title: "Payment Scheduling", text: "Scheduling payments for local suppliers and preparing telex forms for foreign supplier payments." },
+    { title: "Supplier Coordination", text: "Following up with suppliers on payment concerns and confirmations." },
+    { title: "Banking Transactions", text: "Working directly with banks on transactions, documentation, requirements, and follow-ups, including export transaction documents." },
+    { title: "Financial Reporting", text: "Preparing weekly Cash Receipts and Disbursements Reports and weekly Cash Position Reports." },
+    { title: "Administrative Support", text: "Coordinating with sales personnel on customer collections and payment confirmations, and keeping records organized." },
+    { title: "AI-Assisted Application Development", text: "Building simple web tools with AI assistance to organize and streamline financial transactions. Not a developer by trade; a finance professional who uses technology to work smarter." },
+  ],
+
+  experience: {
+    role: "Finance Assistant",
+    company: "Bataan 2020, Inc., Quezon City, Philippines",
+    dates: "July 2023 – Present",
+    groups: [
+      {
+        title: "Treasury and Cash Management",
+        items: [
+          "Monitor cash inflows and outflows across multiple bank accounts.",
+          "Track bank balances to ensure sufficient funds and prevent DAIF (Drawn Against Insufficient Funds).",
+          "Support bank reconciliation by matching deposits and disbursements to bank statements.",
+          "Prepare daily deposits.",
+          "Safekeep and monitor post-dated checks (PDCs).",
+          "Manage the revolving fund for cash transactions involving scrap payments.",
+          "Prepare weekly Cash Receipts and Disbursements and Cash Position Reports; update the WCRD monitoring file daily.",
+        ],
+      },
+      {
+        title: "Accounts Payable and Payment Processing",
+        items: [
+          "Schedule payments for local suppliers.",
+          "Prepare telex forms for foreign supplier payments.",
+          "Review supporting documents for check preparation and approval.",
+          "Coordinate with suppliers on payment concerns and confirmations.",
+          "Coordinate with sales personnel on customer collections and payment confirmations.",
+        ],
+      },
+      {
+        title: "Banking and Financial Documentation",
+        items: [
+          "Coordinate directly with banks on transactions and documentation.",
+          "Prepare bank documents required for export transactions.",
+          "Handle banking requirements and follow-ups on financial transactions.",
+        ],
+      },
+      {
+        title: "Technology and Process Improvement",
+        items: [
+          "Use AI tools to develop simple web applications that organize, monitor, and streamline financial transactions.",
+          "Improve existing workflows and reduce manual administrative tasks.",
+          "Developed a Revolving Fund Monitoring System to track cash balances, monitor cash utilization, identify replenishment requirements, and retrieve transaction data for monitoring and reporting.",
+        ],
+      },
+    ],
+  },
+
+  projectsNote:
+    "Practical internal tools and personal process-improvement projects built with AI assistance. They are not commercial or enterprise software.",
+  projects: [
+    {
+      title: "Financial Transaction Monitoring System",
+      text: "A simple web tool for recording and monitoring financial transactions in one organized view.",
+      detail: "",
+    },
+    {
+      title: "Fund Transfer Monitoring System",
+      text: "A simple tool for keeping track of fund transfers and their status.",
+      detail: "",
+    },
+    {
+      title: "Check Approval and Monitoring System",
+      text: "A workflow tool for following checks through preparation, approval, and release.",
+      detail: "",
+    },
+    {
+      title: "Payment and Cash Monitoring Tools",
+      text: "Lightweight tools that support payment tracking and cash monitoring.",
+      detail: "Includes a Revolving Fund Monitoring System that tracks cash balances, monitors cash utilization, identifies replenishment requirements, and makes transaction data easy to retrieve for monitoring and reporting.",
+    },
+    {
+      title: "Other Administrative and Finance Applications",
+      text: "Small applications built to reduce repetitive administrative work.",
+      detail: "",
+    },
+  ],
+
+  tools: [
+    "Microsoft Excel",
+    "Google Sheets",
+    "Google Workspace",
+    "Gmail",
+    "Google Drive",
+    "ChatGPT",
+    "Claude AI",
+    "Google Apps Script",
+    "Basic HTML, CSS & JavaScript",
+    "AI-Assisted Application Development",
+  ],
+};
+
+</script>
+  <script>
+/* Renders the page from js/content.js. You normally do not need to edit this file. */
+(function () {
+  "use strict";
+
+  var S = window.SITE;
+  if (!S) { return; }
+  document.documentElement.className += " js";
+
+  function $(id) { return document.getElementById(id); }
+
+  // Wrap any [bracketed placeholder] in a highlighted span (built safely, no innerHTML)
+  function fill(el, text) {
+    el.textContent = "";
+    String(text).split(/(\[[^\]]+\])/).forEach(function (part) {
+      if (!part) { return; }
+      if (part.charAt(0) === "[" && part.charAt(part.length - 1) === "]") {
+        var s = document.createElement("span");
+        s.className = "ph";
+        s.textContent = part;
+        el.appendChild(s);
+      } else {
+        el.appendChild(document.createTextNode(part));
+      }
+    });
+    return el;
+  }
+
+  function make(tag, className, text) {
+    var el = document.createElement(tag);
+    if (className) { el.className = className; }
+    if (text !== undefined) { fill(el, text); }
+    return el;
+  }
+
+  function isPlaceholder(v) { return !v || v.charAt(0) === "["; }
+
+  // ----- Header and hero -----
+  var plainName = S.name.replace(/[\[\]]/g, "");
+  document.title = plainName + " | " + S.title;
+  var initials = plainName.split(/\s+/).filter(Boolean).slice(0, 2).map(function (w) { return w.charAt(0).toUpperCase(); }).join("");
+  $("brandMark").textContent = initials || "FT";
+  $("brandName").textContent = plainName;
+  fill($("heroTitle"), S.title);
+  fill($("heroName"), S.name);
+  fill($("heroHeadline"), S.headline);
+  fill($("heroMeta"), S.location + "  |  " + S.availability);
+  $("resumeBtn").setAttribute("href", S.resumeFile);
+  $("resumeBtn2").setAttribute("href", S.resumeFile);
+
+  S.snapshot.forEach(function (item) {
+    var li = make("li");
+    li.appendChild(make("span", "tag", item.label));
+    li.appendChild(make("strong", "", item.value));
+    li.appendChild(make("span", "note", item.note));
+    $("snapshotList").appendChild(li);
+  });
+
+  // ----- About -----
+  S.intro.paragraphs.forEach(function (p) { $("aboutText").appendChild(make("p", "", p)); });
+  fill($("eduDegree"), S.intro.education);
+  fill($("eduSchool"), S.intro.educationSchool);
+  S.intro.strengths.forEach(function (t) { $("strengthsList").appendChild(make("li", "", t)); });
+  S.intro.expertise.forEach(function (t) { $("expertiseList").appendChild(make("span", "chip", t)); });
+
+  // ----- Competencies -----
+  S.competencies.forEach(function (c) {
+    var d = make("div", "tile reveal");
+    d.appendChild(make("h3", "", c.title));
+    d.appendChild(make("p", "", c.text));
+    $("competencyGrid").appendChild(d);
+  });
+
+  // ----- Experience -----
+  fill($("roleTitle"), S.experience.role);
+  fill($("roleCompany"), S.experience.company);
+  fill($("roleDates"), S.experience.dates);
+  S.experience.groups.forEach(function (g) {
+    var d = make("div", "tile reveal");
+    d.appendChild(make("h3", "", g.title));
+    var ul = make("ul");
+    g.items.forEach(function (i) { ul.appendChild(make("li", "", i)); });
+    d.appendChild(ul);
+    $("experienceGrid").appendChild(d);
+  });
+
+  // ----- Projects -----
+  fill($("projectsNote"), S.projectsNote);
+  S.projects.forEach(function (p) {
+    var d = make("div", "tile reveal");
+    d.appendChild(make("span", "badge", "Internal tool · AI-assisted"));
+    d.appendChild(make("h3", "", p.title));
+    d.appendChild(make("p", "", p.text));
+    if (p.detail) { d.appendChild(make("p", "detail", p.detail)); }
+    $("projectGrid").appendChild(d);
+  });
+
+  // ----- Tools -----
+  S.tools.forEach(function (t) { $("toolsList").appendChild(make("li", "", t)); });
+
+  // ----- Contact -----
+  var rows = [
+    ["Email", S.contact.email, isPlaceholder(S.contact.email) ? null : "mailto:" + S.contact.email],
+    ["Phone", S.contact.phone, isPlaceholder(S.contact.phone) ? null : "tel:" + S.contact.phone.replace(/[^\d+]/g, "")],
+    ["LinkedIn", S.contact.linkedin, isPlaceholder(S.contact.linkedin) ? null : S.contact.linkedin],
+    ["Location", S.contact.location, null],
+  ];
+  rows.filter(function (r) { return r[1]; }).forEach(function (r) {
+    var li = make("li");
+    li.appendChild(make("span", "label", r[0]));
+    var value = make("span", "value");
+    if (r[2]) {
+      var a = make("a", "", r[1]);
+      a.setAttribute("href", r[2]);
+      if (r[0] === "LinkedIn") { a.setAttribute("target", "_blank"); a.setAttribute("rel", "noopener noreferrer"); }
+      value.appendChild(a);
+    } else {
+      fill(value, r[1]);
+    }
+    li.appendChild(value);
+    $("contactList").appendChild(li);
+  });
+  $("emailBtn").setAttribute("href", isPlaceholder(S.contact.email) ? "#contact" : "mailto:" + S.contact.email);
+
+  $("footerText").textContent = "© " + new Date().getFullYear() + " " + plainName + ". Practical finance and treasury experience with AI-assisted process improvement.";
+
+  // ----- Mobile menu -----
+  var toggle = $("navToggle");
+  var links = $("navLinks");
+  toggle.addEventListener("click", function () {
+    var open = links.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  links.addEventListener("click", function (e) {
+    if (e.target.tagName === "A") {
+      links.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // ----- Reveal on scroll (falls back to visible if unsupported) -----
+  var items = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    Array.prototype.forEach.call(items, function (el) { io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(items, function (el) { el.classList.add("in"); });
+  }
+})();
+
+</script>
 </body>
 </html>
