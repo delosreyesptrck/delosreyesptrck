@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finance &amp; Treasury Professional | Portfolio</title>
+  <meta name="description" content="Portfolio of a finance and treasury professional: cash management, accounts payable, banking coordination, and AI-assisted process improvement.">
+  <meta name="theme-color" content="#142a4f">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Back to top"><span class="brand-mark" id="brandMark">FT</span><span id="brandName">Portfolio</span></a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <nav id="navLinks" class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#competencies">Competencies</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#tools">Tools</a>
+        <a class="btn btn-small" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="heroName">
+      <div class="wrap hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" id="heroTitle"></p>
+          <h1 id="heroName"></h1>
+          <p class="lead" id="heroHeadline"></p>
+          <p class="meta" id="heroMeta"></p>
+          <div class="cta">
+            <a class="btn" id="resumeBtn" href="assets/Resume.pdf" download>Download Resume</a>
+            <a class="btn btn-ghost" href="#contact">Contact Me</a>
+          </div>
+        </div>
+        <aside class="snapshot reveal" aria-label="Typical treasury routines">
+          <div class="snapshot-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="snapshot-title">Treasury routine</span></div>
+          <ul id="snapshotList" class="snapshot-list"></ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap">
+        <h2 class="section-title reveal">About</h2>
+        <div class="about-grid">
+          <div class="reveal" id="aboutText"></div>
+          <div class="card reveal">
+            <h3>Education</h3>
+            <p id="eduDegree"></p>
+            <p class="muted" id="eduSchool"></p>
+            <h3 class="spaced">Key strengths</h3>
+            <ul class="check" id="strengthsList"></ul>
+            <h3 class="spaced">Areas of expertise</h3>
+            <div class="chips" id="expertiseList"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="competencies" class="section alt">
+      <div class="wrap">
+        <h2 class="section-title reveal">Core Competencies</h2>
+        <div class="grid grid-3" id="competencyGrid"></div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="wrap">
+        <h2 class="section-title reveal">Work Experience</h2>
+        <div class="role reveal">
+          <div>
+            <h3 id="roleTitle"></h3>
+            <p class="muted" id="roleCompany"></p>
+          </div>
+          <p class="role-dates" id="roleDates"></p>
+        </div>
+        <div class="grid grid-2" id="experienceGrid"></div>
+      </div>
+    </section>
+
+    <section id="projects" class="section alt">
+      <div class="wrap">
+        <h2 class="section-title reveal">Projects &amp; Process Improvements</h2>
+        <p class="section-note reveal" id="projectsNote"></p>
+        <div class="grid grid-3" id="projectGrid"></div>
+      </div>
+    </section>
+
+    <section id="tools" class="section">
+      <div class="wrap">
+        <h2 class="section-title reveal">Tools &amp; Technology</h2>
+        <ul class="chips chips-large reveal" id="toolsList"></ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="wrap">
+        <h2 class="section-title reveal">Contact</h2>
+        <p class="section-note reveal">Open to finance, treasury, accounts payable, and remote finance support opportunities.</p>
+        <div class="grid grid-2 contact-grid">
+          <ul class="contact-list reveal" id="contactList"></ul>
+          <div class="cta reveal">
+            <a class="btn" id="emailBtn" href="#contact">Send an Email</a>
+            <a class="btn btn-ghost-light" id="resumeBtn2" href="assets/Resume.pdf" download>Download Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap"><p id="footerText"></p></div>
+  </footer>
+
+  <script src="js/content.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
